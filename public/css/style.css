@@ -1,0 +1,117 @@
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+
+.navbar{
+    height: 5rem;
+    background: #000;
+}
+
+.fa-compass{
+    color:#fe424d;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+/* footer */
+.f-info-links a{
+    text-decoration: none;
+    color: #ffffff;
+    margin-right: 15px;
+}
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links ,.f-info-socials{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+.f-info{
+    height: 8rem !important;
+    background: #000;
+    color: #ffffff;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+/* Card */
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-text p{
+    font-weight: 400;
+
+}
+.listing-link{
+    text-decoration: none !important;
+    color: #222222 ;
+}
+.flex{
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* New.ejs style */
+.btns{
+    display: flex !important;
+    
+}
+.btn{
+    float: right;
+    background: transparent;
+}
+.remove{
+    display: none;
+}
+.btn-close{
+    position: relative;
+    float: right;
+    border: none;
+    background:transparent;
+    outline: none;
+}

@@ -1,0 +1,87 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<div class="row">
+  <div class="col-8 offset-2">
+    <br />
+    <h3><b><%= listing.title%></b></h3>
+    <div class="card">
+      <img
+        src="<%=listing.image%>"
+        alt="listing_image"
+        class="card-img-top show-img"
+      />
+      <div class="card-body">
+        <p class="card-text">
+          <b><%= listing.description%></b> <br />
+          <b
+            >&#8377; <% if (listing.price != null) { %> <%=
+            listing.price.toLocaleString("en-IN") %> <% } else { %> Price not
+            available <% } %></b
+          >
+          <br />
+          <b><%= listing.location%></b> <br />
+          <b><%= listing.country%></b> <br />
+        </p>
+      </div>
+    </div>
+
+    <div class="btns">
+      <a
+        href="/listings/<%=listing._id%>/edit"
+        class="btn btn-dark col-1 offset-1"
+        >Edit</a
+      >
+
+      <form action="/listings/<%=listing._id%>?_method=DELETE" method="post">
+        <button class="btn btn-dark offset-4">Delete</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="col-8 offset-2">
+    <hr />
+    <h4>Leave A Review</h4>
+    <form action="/listings/<%=listing._id%>/reviews" method="post" novalidate class="needs-validation">
+      <div class="mb-3 mt-3">
+        <label for="rating" class="form-label">Rating :</label>
+        <input type="range" name="review[rating]" id="rating" min="1" max="5" class="form-range" />
+      </div>
+      <div class="mb-3">
+        <label for="comment" class="form-label">Comments :</label>
+        <textarea
+          name="review[comment]"
+          id="comment"
+          class="form-control"
+          cols="30"
+          rows="5"
+          placeholder="Give your valuable review"
+          required
+          style="padding: 0px !important;"
+        >
+        </textarea>
+        <div class="invalid-feedback">Please Give some review</div>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-dark">Submit</button>
+      </div>
+    </form>
+    <br /><br />
+    <br /><br />
+
+    <hr>
+
+    <p style="font-size: 25px !important; "><b>All Reviews</b></p>
+    <div class="row">
+
+      <%for(review of listing.reviews){ %>
+        <div class="card col-5 mb-3 ms-3">
+          <div class="card-body">
+            <h5 class="card-title">Jane Doe</h5>
+            <p class="card-text"><%=review.comment%></p>
+            <p class="card-text"><%=review.rating%> star</p>
+          </div>
+        </div>        
+        <%}%>  
+      </div>
+
+  </div>
+</div>

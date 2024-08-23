@@ -1,0 +1,27 @@
+<% layout("/layouts/boilerplate.ejs")%>
+<body>
+  <h3>All Listings</h3>
+  <div class="row flex">
+    <% for(let listing of allListings){%>
+    <a href="/listings/<%=listing.id%>" class="listing-link">
+      <div class="card" style="width: 20rem">
+        <img
+          class="card-img-top"
+          src="<%=listing.image%>"
+          alt="listing_image"
+          style="height: 18rem"
+        />
+        <div class="card-img-overlay"></div>
+        <div class="card-body">
+          <p class="card-text">
+            <%=listing.title %> <br />
+            &#8377; <% if (listing.price != null) { %> <%=
+            listing.price.toLocaleString("en-IN") %> <% } else { %> Price not
+            available <% } %>/ night
+          </p>
+        </div>
+      </div>
+      <%} %>
+    </a>
+  </div>
+</body>
