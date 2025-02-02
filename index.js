@@ -73,10 +73,6 @@ app.use((req,res,next)=>{
     next();
 })
 
-// Joi -- npm package , which is used to validate schema
-
-
-// Routes
 async function main(){
     await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
 }
@@ -92,7 +88,6 @@ app.listen(port,(res)=>{
 })
 
 app.get("/",(req,res)=>{
-    // res.send("Working");
     res.redirect("/listings");
 })
 
