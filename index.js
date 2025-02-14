@@ -1,10 +1,12 @@
+require("dotenv").config();
+
 const express=require("express");
 const mongoose=require("mongoose");
 const methodOverride=require("method-override");
 const path=require("path");
 const ejsMate=require("ejs-mate");
 const app=express();
-const port=8080;
+const port=8080 || process.env.PORT;
 
 const session=require("express-session");
 const flash=require("connect-flash");
@@ -72,9 +74,9 @@ app.use((req,res,next)=>{
     res.locals.currUser=req.user;
     next();
 })
-
+const url=process.env.MONGO_URL
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust");
+    await mongoose.connect(url);
 }
 
 main().then(()=>{
